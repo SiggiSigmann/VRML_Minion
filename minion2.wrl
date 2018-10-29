@@ -188,9 +188,9 @@ Transform{
     ]
 }
 
-#compet leg
+#compet leg right
 Transform{
-    translation 0 0 0
+    translation 1 1 1
     rotation 0 0 0 0
     children[
         DEF legElement Shape{
@@ -247,6 +247,38 @@ Transform{
                                         bottom true
                                     }
                                 }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+#compet leg left
+Transform{
+    translation 0 0 0
+    rotation 0 0 0 0
+    children[
+        USE legElement
+        #unterschenkel
+        Transform{
+            translation 0 -0.5 0
+            rotation 0 0 0 0
+            children[
+                USE knee
+                #foot
+                Transform{
+                    translation 0 -0.5 0
+                    rotation 0 0 0 0
+                    children[
+                       USE legElement
+                        Transform{
+                            translation 0 -0.3 0.3
+                            rotation 1 0 0 1.6
+                            children[
+                                USE foot
                             ]
                         }
                     ]

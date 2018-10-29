@@ -3,7 +3,7 @@
 
 #complete right arm
 Transform{
-    translation 1 0 0 
+    translation 2 2 2
     rotation 0 0 2 1.5
     children [
         
@@ -17,9 +17,9 @@ Transform{
             geometry Cylinder {
                 height 1
                 radius 0.1
-                side true
-                top false
-                bottom true
+                side TRUE
+                top FALSE
+                bottom FALSE
             }
         }
         #elbow
@@ -51,9 +51,9 @@ Transform{
                             geometry Cylinder {
                                 height 1
                                 radius 0.1
-                                side true
-                                top false
-                                bottom true
+                                side TRUE
+                                top FALSE
+                                bottom FALSE
                             }
                         }
                         #right hand
@@ -131,7 +131,7 @@ Transform{
 
 #complete right arm
 Transform{
-    translation -1 0 0
+    translation -2 -2 -2
     rotation 0 0 2 1.5
     children [
         
@@ -188,3 +188,70 @@ Transform{
     ]
 }
 
+#compet leg
+Transform{
+    translation 0 0 0
+    rotation 0 0 0 0
+    children[
+        DEF legElement Shape{
+            appearance Appearance{
+                material Material { 
+                    diffuseColor 1 0 0
+                }
+            }
+            geometry Cylinder {
+                height 1
+                radius 0.2
+                side true
+                top true
+                bottom true
+            }
+        }
+        #unterschenkel
+        Transform{
+            translation 0 -0.5 0
+            rotation 0 0 0 0
+            children[
+                DEF knee Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 1 1
+                                }
+                            }
+                            geometry Sphere {
+                                radius 0.2
+
+                            }
+                        }
+                #foot
+                Transform{
+                    translation 0 -0.5 0
+                    rotation 0 0 0 0
+                    children[
+                       USE legElement
+                        Transform{
+                            translation 0 -0.3 0.3
+                            rotation 1 0 0 1.6
+                            children[
+                                DEF foot Shape{
+                                    appearance Appearance{
+                                        material Material { 
+                                            diffuseColor 1 1 1
+                                        }
+                                    }
+                                    geometry Cylinder {
+                                        height 0.6
+                                        radius 0.2
+                                        side true
+                                        top true
+                                        bottom true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

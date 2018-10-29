@@ -8,7 +8,7 @@ Transform{
     children [
         
         #upper arm
-        Shape{
+        DEF upperArm Shape{
             appearance Appearance{
                 material Material { 
                     diffuseColor 1 0 0
@@ -27,7 +27,7 @@ Transform{
             translation 0 0.5 0
             rotation -1 0 0 2     
             children [
-                Shape{
+                DEF elbow Shape{
                     appearance Appearance{
                         material Material { 
                             diffuseColor 0 1 0
@@ -42,7 +42,7 @@ Transform{
                     translation 0 0.5 0
                     rotation 0 0 0 0
                     children[  
-                        Shape{
+                        DEF forearm Shape{
                             appearance Appearance{
                                 material Material { 
                                     diffuseColor 1 0 0
@@ -61,7 +61,7 @@ Transform{
                             translation 0 0.5 0
                             rotation 0 0 1 .05
                             children[
-                                Shape{
+                                DEF wrist Shape{
                                     appearance Appearance{
                                         material Material { 
                                             diffuseColor 1 0 0
@@ -74,7 +74,7 @@ Transform{
                                         bottom       TRUE
                                     }
                                 }
-                                Shape{
+                                DEF hand Shape{
                                     appearance Appearance{
                                         material Material { 
                                             diffuseColor 1 0 0
@@ -136,82 +136,26 @@ Transform{
     children [
         
         #upper arm
-        Shape{
-            appearance Appearance{
-                material Material { 
-                    diffuseColor 1 0 0
-                }
-            }
-            geometry Cylinder {
-                height 1
-                radius 0.1
-                side true
-                top false
-                bottom true
-            }
-        }
+        USE upperArm
         #elbow
         Transform{
             translation 0 0.5 0
             rotation 0 0 0 0    
             children [
-                Shape{
-                    appearance Appearance{
-                        material Material { 
-                            diffuseColor 0 1 0
-                        }
-                    }
-                    geometry Sphere {
-                        radius 0.15
-                    }
-                }
+                USE elbow
                 #forearm
                 Transform {
                     translation 0 0.5 0
                     rotation 0 0 0 0
                     children[  
-                        Shape{
-                            appearance Appearance{
-                                material Material { 
-                                    diffuseColor 1 0 0
-                                }
-                            }
-                            geometry Cylinder {
-                                height 1
-                                radius 0.1
-                                side true
-                                top false
-                                bottom true
-                            }
-                        }
+                       USE forearm
                         #right hand
                         Transform {
                             translation 0 0.5 0
                             rotation 0 0 1 .05
                             children[
-                                Shape{
-                                    appearance Appearance{
-                                        material Material { 
-                                            diffuseColor 1 0 0
-                                        }
-                                    }
-                                    geometry Cone {
-                                        bottomRadius 0.2
-                                        height       0.4
-                                        side         TRUE
-                                        bottom       TRUE
-                                    }
-                                }
-                                Shape{
-                                    appearance Appearance{
-                                        material Material { 
-                                            diffuseColor 1 0 0
-                                        }
-                                    }
-                                    geometry Sphere {
-                                        radius 0.2
-                                    }
-                                }
+                                USE wrist
+                                USE hand
 
                                 #finger
                                 Transform {

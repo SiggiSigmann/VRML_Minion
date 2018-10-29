@@ -1,0 +1,142 @@
+#VRML V2.0 utf8
+#Model of a Minion
+Group {
+    children[
+        #Body
+        Transform {
+            translation 0 1 0
+            children[
+                Shape{
+                    appearance Appearance{
+                        material Material { 
+                            diffuseColor 0 1 0
+                        }
+                    }
+                    geometry Sphere {
+                        radius 1
+                    }
+                }
+            ]
+        }
+        Shape{
+            appearance Appearance{
+                material Material { 
+                    diffuseColor 1 0 0
+                }
+            }
+            geometry Cylinder {
+                height  2
+                radius  1
+                side true
+                top false
+                bottom false
+            }
+        }
+        Transform {
+            translation 0 -1 0
+            children[
+                Shape{
+                    appearance Appearance{
+                        material Material { 
+                            diffuseColor 0 1 0
+                        }
+                    }
+                    geometry Sphere {
+                        radius 1
+                    }
+                }
+            ]
+        }
+       
+        #legs
+        Transform {
+            translation 0 -2 0
+            children[
+                Transform {
+                    translation -0.5 0 0
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height 2
+                                radius 0.2
+                                side true
+                                top false
+                                bottom true
+                            }
+                        }
+                    ]
+                } 
+                Transform {
+                    translation 0.5 0 0
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height  2
+                                radius  0.2
+                                side true
+                                top false
+                                bottom true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        #shoes
+        Transform {
+            translation 0 -3 0.25
+            rotation 1.0 0.0 0.0 1.57
+            children[
+                Transform {
+                    translation -0.5 0 0
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height 0.75
+                                radius 0.2
+                                side true
+                                top true
+                                bottom true
+                            }
+                        }
+                    ]
+                } 
+                Transform {
+                    translation 0.5 0 0
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height  0.75
+                                radius  0.2
+                                side true
+                                top true
+                                bottom true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

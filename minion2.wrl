@@ -1,15 +1,13 @@
 #VRML V2.0 utf8
 #Model of a Minion
 
-
-
-
-
 #complete right arm
 Transform{
-    translation 0 0 0
+    translation 1 0 0 
     rotation 0 0 2 1.5
     children [
+        
+        #upper arm
         Shape{
             appearance Appearance{
                 material Material { 
@@ -39,6 +37,7 @@ Transform{
                         radius 0.15
                     }
                 }
+                #forearm
                 Transform {
                     translation 0 0.5 0
                     rotation 0 0 0 0
@@ -126,6 +125,122 @@ Transform{
                     ]
                 } 
             ]
+        }  
+    ]
+}
+
+#complete right arm
+Transform{
+    translation -1 0 0
+    rotation 0 0 2 1.5
+    children [
+        
+        #upper arm
+        Shape{
+            appearance Appearance{
+                material Material { 
+                    diffuseColor 1 0 0
+                }
+            }
+            geometry Cylinder {
+                height 1
+                radius 0.1
+                side true
+                top false
+                bottom true
+            }
+        }
+        #elbow
+        Transform{
+            translation 0 0.5 0
+            rotation 0 0 0 0    
+            children [
+                Shape{
+                    appearance Appearance{
+                        material Material { 
+                            diffuseColor 0 1 0
+                        }
+                    }
+                    geometry Sphere {
+                        radius 0.15
+                    }
+                }
+                #forearm
+                Transform {
+                    translation 0 0.5 0
+                    rotation 0 0 0 0
+                    children[  
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height 1
+                                radius 0.1
+                                side true
+                                top false
+                                bottom true
+                            }
+                        }
+                        #right hand
+                        Transform {
+                            translation 0 0.5 0
+                            rotation 0 0 1 .05
+                            children[
+                                Shape{
+                                    appearance Appearance{
+                                        material Material { 
+                                            diffuseColor 1 0 0
+                                        }
+                                    }
+                                    geometry Cone {
+                                        bottomRadius 0.2
+                                        height       0.4
+                                        side         TRUE
+                                        bottom       TRUE
+                                    }
+                                }
+                                Shape{
+                                    appearance Appearance{
+                                        material Material { 
+                                            diffuseColor 1 0 0
+                                        }
+                                    }
+                                    geometry Sphere {
+                                        radius 0.2
+                                    }
+                                }
+
+                                #finger
+                                Transform {
+                                    translation -0.1 0.2 0.1
+                                    rotation 0 0 0 0
+                                    children[
+                                        USE finger
+                                    ]
+                                }
+                                Transform {
+                                    translation -0.1 0.2 -0.1
+                                    rotation 0 0 0 0
+                                    children[
+                                        USE finger
+                                    ]
+                                }
+                                Transform {
+                                    translation 0.1 0.2 -0.1
+                                    rotation 0 0 0 0
+                                    children[
+                                        USE finger
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
+

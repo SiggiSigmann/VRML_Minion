@@ -47,7 +47,52 @@ Group {
                 }
             ]
         }
-       
+        #arms
+        Transform {
+            translation 0 0.5 0
+            children[
+                Transform {
+                    translation -1 0 0
+                    rotation 0.0 0.0 -1.0 0.7
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height 3
+                                radius 0.1
+                                side true
+                                top false
+                                bottom true
+                            }
+                        }
+                    ]
+                } 
+                Transform {
+                    translation 1 0 0
+                    rotation 0.0 0.0 1.0 0.7
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                height  3
+                                radius  0.1
+                                side true
+                                top false
+                                bottom true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
         #legs
         Transform {
             translation 0 -2 0

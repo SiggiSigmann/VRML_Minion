@@ -52,8 +52,8 @@ Group {
             translation 0 0.5 0
             children[
                 Transform {
-                    translation -1 0 0
-                    rotation 0.0 0.0 -1.0 0.7
+                    translation -1 0.2 1
+                    rotation -1.0 0.0 -0.4 2.0
                     children[
                         Shape{
                             appearance Appearance{
@@ -62,7 +62,7 @@ Group {
                                 }
                             }
                             geometry Cylinder {
-                                height 3
+                                height 2.5
                                 radius 0.1
                                 side true
                                 top false
@@ -82,7 +82,7 @@ Group {
                                 }
                             }
                             geometry Cylinder {
-                                height  3
+                                height  2.5
                                 radius  0.1
                                 side true
                                 top false

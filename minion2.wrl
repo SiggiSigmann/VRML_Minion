@@ -1,9 +1,53 @@
 #VRML V2.0 utf8
 #Model of a Minion
 
-#upper Body
+#glasses
 Transform{
     translation 0 0 0
+    rotation 0 0 0 0
+    children[
+        Shape{
+            appearance Appearance{
+                material Material { 
+                    diffuseColor 1 0 0
+                }
+            }
+            geometry Cylinder {
+                height 0.1
+                radius 1
+                side true
+                top true
+                bottom true
+            }
+        }
+        #glass
+        Transform{
+            translation 0 0 1
+            rotation 1 0 0 1.6
+            children[
+                Shape{
+                    appearance Appearance{
+                        material Material { 
+                            diffuseColor 1 0 0
+                        }
+                    }
+                    geometry Cylinder {
+                        height 0.1
+                        radius 0.3
+                        side true
+                        top true
+                        bottom true
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+
+#upper Body
+Transform{
+    translation 4 4 4
     rotation 0 0 0 0
     children[
         #hip
@@ -49,16 +93,16 @@ Transform{
                     rotation 0 0 0 0
                     children[
                         DEF knee Shape{
-                                    appearance Appearance{
-                                        material Material { 
-                                            diffuseColor 1 1 1
-                                        }
-                                    }
-                                    geometry Sphere {
-                                        radius 0.2
-
-                                    }
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 1 1 1
                                 }
+                            }
+                            geometry Sphere {
+                                radius 0.2
+
+                            }
+                        }
                         #foot
                         Transform{
                             translation 0 -0.5 0

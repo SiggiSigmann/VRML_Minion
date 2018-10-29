@@ -1,182 +1,229 @@
 #VRML V2.0 utf8
 #Model of a Minion
 
-#complete right arm
+#body and arms
 Transform{
-    translation 2 2 2
-    rotation 0 0 2 1.5
-    children [
-        
-        #upper arm
-        DEF upperArm Shape{
-            appearance Appearance{
-                material Material { 
-                    diffuseColor 1 0 0
-                }
-            }
-            geometry Cylinder {
-                height 1
-                radius 0.1
-                side TRUE
-                top FALSE
-                bottom FALSE
-            }
-        }
-        #elbow
+    translation 0 0 0
+    rotation 0 0 0 0
+    children[
+        #body
         Transform{
-            translation 0 0.5 0
-            rotation -1 0 0 2     
-            children [
-                DEF elbow Shape{
+            translation 0 0 0
+            rotation 0 0 0 0
+            children[
+                Shape{
                     appearance Appearance{
                         material Material { 
-                            diffuseColor 0 1 0
+                            diffuseColor 1 0 1
                         }
                     }
-                    geometry Sphere {
-                        radius 0.15
+                    geometry Cylinder {
+                        height 1.5
+                        radius 1
+                        side true
+                        top FALSE
+                        bottom FALSE
                     }
                 }
-                #forearm
-                Transform {
-                    translation 0 0.5 0
+                #hip
+                Transform{
+                    translation 0 -0.75 0
                     rotation 0 0 0 0
-                    children[  
-                        DEF forearm Shape{
+                    scale 1 0.6 1
+                    children[
+                        Shape{
                             appearance Appearance{
                                 material Material { 
-                                    diffuseColor 1 0 0
+                                    diffuseColor 0 1 0
                                 }
                             }
-                            geometry Cylinder {
-                                height 1
-                                radius 0.1
-                                side TRUE
-                                top FALSE
-                                bottom FALSE
+                            geometry Sphere {
+                                radius 1
                             }
                         }
-                        #right hand
+                    ]
+                }
+            ]
+        }
+
+        #complete right arm
+        Transform{
+            translation -1.1 0 0
+            rotation -1 0.1 0 3.5
+            children [
+                
+                #upper arm
+                DEF upperArm Shape{
+                    appearance Appearance{
+                        material Material { 
+                            diffuseColor 1 0 0
+                        }
+                    }
+                    geometry Cylinder {
+                        height 1
+                        radius 0.1
+                        side TRUE
+                        top FALSE
+                        bottom FALSE
+                    }
+                }
+                #elbow
+                Transform{
+                    translation 0 0.5 0
+                    rotation -1 0.1 0 2     
+                    children [
+                        DEF elbow Shape{
+                            appearance Appearance{
+                                material Material { 
+                                    diffuseColor 0 1 0
+                                }
+                            }
+                            geometry Sphere {
+                                radius 0.15
+                            }
+                        }
+                        #forearm
                         Transform {
                             translation 0 0.5 0
-                            rotation 0 0 1 .05
-                            children[
-                                DEF wrist Shape{
+                            rotation 0 0 0 0
+                            children[  
+                                DEF forearm Shape{
                                     appearance Appearance{
                                         material Material { 
                                             diffuseColor 1 0 0
                                         }
                                     }
-                                    geometry Cone {
-                                        bottomRadius 0.2
-                                        height       0.4
-                                        side         TRUE
-                                        bottom       TRUE
+                                    geometry Cylinder {
+                                        height 1
+                                        radius 0.1
+                                        side TRUE
+                                        top FALSE
+                                        bottom FALSE
                                     }
                                 }
-                                DEF hand Shape{
-                                    appearance Appearance{
-                                        material Material { 
-                                            diffuseColor 1 0 0
-                                        }
-                                    }
-                                    geometry Sphere {
-                                        radius 0.2
-                                    }
-                                }
-
-                                #finger
+                                #right hand
                                 Transform {
-                                    translation 0 0.19 0.05 
-                                    rotation 0.0 0.0 1.0 1.0
-                                    
+                                    translation 0 0.5 0
+                                    rotation 0 0 1 .05
                                     children[
-                                        DEF finger Shape{
+                                        DEF wrist Shape{
                                             appearance Appearance{
                                                 material Material { 
                                                     diffuseColor 1 0 0
                                                 }
                                             }
-                                            geometry Cylinder {
-                                                radius 0.05
-                                                height       0.2
+                                            geometry Cone {
+                                                bottomRadius 0.2
+                                                height       0.4
                                                 side         TRUE
                                                 bottom       TRUE
                                             }
                                         }
-                                    ]
-                                }
-                                Transform {
-                                    translation -0.1 0.1 -0.25
-                                    rotation -0.5 0.5 0.0 1.5
-                                    children[
-                                       USE finger
-                                    ]
-                                }
-                                Transform {
-                                    translation 0.1 0.1 -0.25
-                                    rotation -0.5 -0.5 0 1.5
-                                    children[
-                                       USE finger
+                                        DEF hand Shape{
+                                            appearance Appearance{
+                                                material Material { 
+                                                    diffuseColor 1 0 0
+                                                }
+                                            }
+                                            geometry Sphere {
+                                                radius 0.2
+                                            }
+                                        }
+
+                                        #finger
+                                        Transform {
+                                            translation 0 0.19 0.05 
+                                            rotation 0.0 0.0 1.0 1.0
+                                            
+                                            children[
+                                                DEF finger Shape{
+                                                    appearance Appearance{
+                                                        material Material { 
+                                                            diffuseColor 1 0 0
+                                                        }
+                                                    }
+                                                    geometry Cylinder {
+                                                        radius 0.05
+                                                        height       0.2
+                                                        side         TRUE
+                                                        bottom       TRUE
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                        Transform {
+                                            translation -0.1 0.1 -0.25
+                                            rotation -0.5 0.5 0.0 1.5
+                                            children[
+                                            USE finger
+                                            ]
+                                        }
+                                        Transform {
+                                            translation 0.1 0.1 -0.25
+                                            rotation -0.5 -0.5 0 1.5
+                                            children[
+                                            USE finger
+                                            ]
+                                        }
                                     ]
                                 }
                             ]
-                        }
+                        } 
                     ]
-                } 
+                }  
             ]
-        }  
-    ]
-}
+        }
 
-#complete right arm
-Transform{
-    translation -2 -2 -2
-    rotation 0 0 2 1.5
-    children [
-        
-        #upper arm
-        USE upperArm
-        #elbow
+        #complete right arm
         Transform{
-            translation 0 0.5 0
-            rotation 0 0 0 0    
+            translation -2 -2 -2
+            rotation 0 0 2 1.5
             children [
-                USE elbow
-                #forearm
-                Transform {
+                
+                #upper arm
+                USE upperArm
+                #elbow
+                Transform{
                     translation 0 0.5 0
-                    rotation 0 0 0 0
-                    children[  
-                       USE forearm
-                        #right hand
+                    rotation 0 0 0 0    
+                    children [
+                        USE elbow
+                        #forearm
                         Transform {
                             translation 0 0.5 0
-                            rotation 0 0 1 .05
-                            children[
-                                USE wrist
-                                USE hand
+                            rotation 0 0 0 0
+                            children[  
+                            USE forearm
+                                #right hand
+                                Transform {
+                                    translation 0 0.5 0
+                                    rotation 0 0 1 .05
+                                    children[
+                                        USE wrist
+                                        USE hand
 
-                                #finger
-                                Transform {
-                                    translation -0.1 0.2 0.1
-                                    rotation 0 0 0 0
-                                    children[
-                                        USE finger
-                                    ]
-                                }
-                                Transform {
-                                    translation -0.1 0.2 -0.1
-                                    rotation 0 0 0 0
-                                    children[
-                                        USE finger
-                                    ]
-                                }
-                                Transform {
-                                    translation 0.1 0.2 -0.1
-                                    rotation 0 0 0 0
-                                    children[
-                                        USE finger
+                                        #finger
+                                        Transform {
+                                            translation -0.1 0.2 0.1
+                                            rotation 0 0 0 0
+                                            children[
+                                                USE finger
+                                            ]
+                                        }
+                                        Transform {
+                                            translation -0.1 0.2 -0.1
+                                            rotation 0 0 0 0
+                                            children[
+                                                USE finger
+                                            ]
+                                        }
+                                        Transform {
+                                            translation 0.1 0.2 -0.1
+                                            rotation 0 0 0 0
+                                            children[
+                                                USE finger
+                                            ]
+                                        }
                                     ]
                                 }
                             ]
@@ -288,41 +335,4 @@ Transform{
     ]
 }
 
-Transform{
-    translation 0 0 0
-    rotation 0 0 0 0
-    children[
-        Shape{
-            appearance Appearance{
-                material Material { 
-                    diffuseColor 1 0 1
-                }
-            }
-            geometry Cylinder {
-                height 1.5
-                radius 1
-                side true
-                top FALSE
-                bottom FALSE
-            }
-        }
-        #hip
-        Transform{
-            translation 0 -0.75 0
-            rotation 0 0 0 0
-            scale 1 0.6 1
-            children[
-                Shape{
-                    appearance Appearance{
-                        material Material { 
-                            diffuseColor 0 1 0
-                        }
-                    }
-                    geometry Sphere {
-                        radius 1
-                    }
-                }
-            ]
-        }
-    ]
-}
+

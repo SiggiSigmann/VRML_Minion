@@ -11,19 +11,25 @@ Transform{
             translation 0 -0.5 0
             rotation 0 0 0 0
             children[
-                Shape{
-                    appearance Appearance{
-                        material Material { 
-                            diffuseColor 0 0 1
+                Transform{
+                    translation 0 0 0
+                    rotation 0 1 0 2.3
+                    children[
+                        Shape{
+                            appearance Appearance{
+                                texture ImageTexture {
+                                    url "mouth.jpg"
+                                }
+                            }
+                            geometry Cylinder {
+                                height 1
+                                radius 1
+                                side TRUE
+                                top FALSE
+                                bottom FALSE
+                            }
                         }
-                    }
-                    geometry Cylinder {
-                        height 1
-                        radius 1
-                        side TRUE
-                        top FALSE
-                        bottom FALSE
-                    }
+                    ]
                 }
                 #strin
                 Transform{
@@ -33,7 +39,7 @@ Transform{
                         Shape{
                             appearance Appearance{
                                 material Material { 
-                                    diffuseColor 1 0 0
+                                    diffuseColor 1 0.78  0.1
                                 }
                             }
                             geometry Sphere {
@@ -48,15 +54,15 @@ Transform{
                                 Shape{
                                     appearance Appearance{
                                         material Material { 
-                                            diffuseColor 0 1 1
+                                            diffuseColor 0.64 0.64 0.64
                                         }
                                     }
                                     geometry Cylinder {
                                         height 0.1
                                         radius 1.1
-                                        side true
-                                        top true
-                                        bottom true
+                                        side TRUE
+                                        top TRUE
+                                        bottom TRUE
                                     }
                                 }
                                 #glass
@@ -64,18 +70,33 @@ Transform{
                                     translation 0 0 1
                                     rotation 1 0 0 1.6
                                     children[
+                                        #eye
+                                        Shape{
+                                            appearance Appearance{
+                                                texture ImageTexture {
+                                                    url "eye.jpg"
+                                                }
+                                            }
+                                            geometry Cylinder {
+                                                height 0.301
+                                                radius 0.2
+                                                side FALSE
+                                                top TRUE
+                                                bottom FALSE
+                                            }
+                                        }
                                         Shape{
                                             appearance Appearance{
                                                 material Material { 
-                                                    diffuseColor 1 0 1
+                                                    diffuseColor 0.64 0.64 0.64
                                                 }
                                             }
                                             geometry Cylinder {
                                                 height 0.3
                                                 radius 0.3
-                                                side true
-                                                top true
-                                                bottom true
+                                                side TRUE
+                                                top TRUE
+                                                bottom TRUE
                                             }
                                         }
                                     ]
@@ -98,16 +119,16 @@ Transform{
                     children[
                         DEF braces Shape{
                             appearance Appearance{
-                                material Material { 
-                                    diffuseColor 1 0 0
+                                texture ImageTexture {
+                                    url "jeans.jpg"
                                 }
                             }
                             geometry Cylinder {
                                 height 0.1
                                 radius 0.6
-                                side true
-                                top true
-                                bottom true
+                                side TRUE
+                                top TRUE
+                                bottom TRUE
                             }
                         }
                     ]
@@ -128,8 +149,8 @@ Transform{
                     children[
                         Shape{
                             appearance Appearance{
-                                material Material { 
-                                    diffuseColor 0 1 0
+                                texture ImageTexture {
+                                    url "jeans.jpg"
                                 }
                             }
                             geometry Sphere {
@@ -145,16 +166,16 @@ Transform{
                     children[
                         DEF legElement Shape{
                             appearance Appearance{
-                                material Material { 
-                                    diffuseColor 1 0 0
+                                texture ImageTexture {
+                                    url "jeans.jpg"
                                 }
                             }
                             geometry Cylinder {
                                 height 1
                                 radius 0.2
-                                side true
-                                top true
-                                bottom true
+                                side TRUE
+                                top TRUE
+                                bottom TRUE
                             }
                         }
                         #unterschenkel
@@ -164,8 +185,8 @@ Transform{
                             children[
                                 DEF knee Shape{
                                     appearance Appearance{
-                                        material Material { 
-                                            diffuseColor 1 1 1
+                                        texture ImageTexture {
+                                            url "jeans.jpg"
                                         }
                                     }
                                     geometry Sphere {
@@ -180,21 +201,21 @@ Transform{
                                     children[
                                     USE legElement
                                         Transform{
-                                            translation 0 -0.3 0.3
+                                            translation 0 -0.5 0.3
                                             rotation 1 0 0 1.6
                                             children[
                                                 DEF foot Shape{
                                                     appearance Appearance{
                                                         material Material { 
-                                                            diffuseColor 1 1 1
+                                                            diffuseColor 0.16 0.16 0.16
                                                         }
                                                     }
                                                     geometry Cylinder {
-                                                        height 0.6
+                                                        height 1
                                                         radius 0.2
-                                                        side true
-                                                        top true
-                                                        bottom true
+                                                        side TRUE
+                                                        top TRUE
+                                                        bottom TRUE
                                                     }
                                                 }
                                             ]
@@ -224,7 +245,7 @@ Transform{
                                     children[
                                     USE legElement
                                         Transform{
-                                            translation 0 -0.3 0.3
+                                            translation 0 -0.5 0.3
                                             rotation 1 0 0 1.6
                                             children[
                                                 USE foot
@@ -248,14 +269,14 @@ Transform{
                             children[
                                 Shape{
                                     appearance Appearance{
-                                        material Material { 
-                                            diffuseColor 1 0 1
+                                       texture ImageTexture {
+                                            url "jeans.jpg"
                                         }
                                     }
                                     geometry Cylinder {
                                         height 1
                                         radius 1
-                                        side true
+                                        side TRUE
                                         top FALSE
                                         bottom FALSE
                                     }
@@ -272,7 +293,7 @@ Transform{
                                 DEF upperArm Shape{
                                     appearance Appearance{
                                         material Material { 
-                                            diffuseColor 1 0 0
+                                            diffuseColor 1 0.78  0.1
                                         }
                                     }
                                     geometry Cylinder {
@@ -291,7 +312,7 @@ Transform{
                                         DEF elbow Shape{
                                             appearance Appearance{
                                                 material Material { 
-                                                    diffuseColor 0 1 0
+                                                    diffuseColor 1 0.78  0.1
                                                 }
                                             }
                                             geometry Sphere {
@@ -306,7 +327,7 @@ Transform{
                                                 DEF forearm Shape{
                                                     appearance Appearance{
                                                         material Material { 
-                                                            diffuseColor 1 0 0
+                                                            diffuseColor 1 0.78  0.1
                                                         }
                                                     }
                                                     geometry Cylinder {
@@ -325,7 +346,7 @@ Transform{
                                                         DEF wrist Shape{
                                                             appearance Appearance{
                                                                 material Material { 
-                                                                    diffuseColor 1 0 0
+                                                                    diffuseColor 0.16 0.16 0.16
                                                                 }
                                                             }
                                                             geometry Cone {
@@ -338,7 +359,7 @@ Transform{
                                                         DEF hand Shape{
                                                             appearance Appearance{
                                                                 material Material { 
-                                                                    diffuseColor 1 0 0
+                                                                    diffuseColor 0.16 0.16 0.16
                                                                 }
                                                             }
                                                             geometry Sphere {
@@ -355,7 +376,7 @@ Transform{
                                                                 DEF finger Shape{
                                                                     appearance Appearance{
                                                                         material Material { 
-                                                                            diffuseColor 1 0 0
+                                                                            diffuseColor 0.16 0.16 0.16
                                                                         }
                                                                     }
                                                                     geometry Cylinder {

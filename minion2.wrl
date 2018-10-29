@@ -190,7 +190,7 @@ Transform{
 
 #compet leg right
 Transform{
-    translation 1 1 1
+    translation 2 2 2
     rotation 0 0 0 0
     children[
         DEF legElement Shape{
@@ -258,7 +258,7 @@ Transform{
 
 #compet leg left
 Transform{
-    translation 0 0 0
+    translation 2 2 2
     rotation 0 0 0 0
     children[
         USE legElement
@@ -282,6 +282,45 @@ Transform{
                             ]
                         }
                     ]
+                }
+            ]
+        }
+    ]
+}
+
+Transform{
+    translation 0 0 0
+    rotation 0 0 0 0
+    children[
+        Shape{
+            appearance Appearance{
+                material Material { 
+                    diffuseColor 1 0 1
+                }
+            }
+            geometry Cylinder {
+                height 1.5
+                radius 1
+                side true
+                top FALSE
+                bottom FALSE
+            }
+        }
+        #hip
+        Transform{
+            translation 0 -0.75 0
+            rotation 0 0 0 0
+            scale 1 0.6 1
+            children[
+                Shape{
+                    appearance Appearance{
+                        material Material { 
+                            diffuseColor 0 1 0
+                        }
+                    }
+                    geometry Sphere {
+                        radius 1
+                    }
                 }
             ]
         }

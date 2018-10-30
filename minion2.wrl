@@ -305,7 +305,7 @@ Transform{
                                     }
                                 }
                                 #elbow
-                                Transform{
+                                DEF elbowPart Transform{
                                     translation 0 0.5 0
                                     rotation -1 0.1 0 2     
                                     children [
@@ -411,7 +411,7 @@ Transform{
                             ]
                         }
                         #complete left arm
-                        Transform{
+                        DEF leftArm Transform{
                             translation 1.1 0 0
                             rotation 1 0.1 0 3
                             children [
@@ -419,7 +419,7 @@ Transform{
                                 #upper arm
                                 USE upperArm
                                 #elbow
-                                Transform{
+                                DEF leftElbow Transform{
                                     translation 0 0.5 0
                                     rotation 0 0 0 0    
                                     children [
@@ -516,3 +516,48 @@ Transform{
         }
     ]
 }
+
+DEF Uhr TimeSensor {
+  cycleInterval 2.0
+  loop TRUE
+}
+
+DEF Uhr1 TimeSensor {
+  cycleInterval 10.0
+  loop TRUE
+}
+
+DEF Interpolator OrientationInterpolator {
+    key [ 0.0 0.5 1.0 ]
+    keyValue [
+        -1 0.1 0 2
+        -1 1 0 2
+        -1 0.1 0 2
+    ]
+}
+DEF InterpolatorleftArm OrientationInterpolator {
+    key [ 0.0 0.5 1.0 ]
+    keyValue [
+        1 0.1 0 3
+        1 0 0 1
+        1 0.1 0 3
+    ]
+}
+DEF InterpolatorleftElbow OrientationInterpolator {
+    key [ 0.0 0.5 1.0 ]
+    keyValue [
+        0 0 0 0
+        0 0 1 0.7
+        0 0 0 0
+    ]
+}
+
+ROUTE Uhr.fraction_changed TO Interpolator.set_fraction
+ROUTE Interpolator.value_changed TO elbowPart.set_rotation
+
+
+ROUTE Uhr1.fraction_changed TO InterpolatorleftArm.set_fraction
+ROUTE InterpolatorleftArm.value_changed TO leftArm.set_rotation
+
+ROUTE Uhr1.fraction_changed TO InterpolatorleftElbow.set_fraction
+ROUTE InterpolatorleftElbow.value_changed TO leftElbow.set_rotation

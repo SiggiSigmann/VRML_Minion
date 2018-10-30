@@ -7,7 +7,7 @@ Transform{
     rotation 0 0 0 0
     children[
         #head
-        Transform{
+        DEF head Transform{
             translation 0 -0.5 0
             rotation 0 0 0 0
             children[
@@ -518,12 +518,12 @@ Transform{
 }
 
 DEF Uhr TimeSensor {
-  cycleInterval 2.0
+  cycleInterval 4
   loop TRUE
 }
 
 DEF Uhr1 TimeSensor {
-  cycleInterval 10.0
+  cycleInterval 10
   loop TRUE
 }
 
@@ -536,19 +536,33 @@ DEF Interpolator OrientationInterpolator {
     ]
 }
 DEF InterpolatorleftArm OrientationInterpolator {
-    key [ 0.0 0.5 1.0 ]
+    key [ 0.0 0.2 0.6 0.8 1.0 ]
     keyValue [
         1 0.1 0 3
         1 0 0 1
+        1 0 0 1
+        1 0.1 0 3
         1 0.1 0 3
     ]
 }
 DEF InterpolatorleftElbow OrientationInterpolator {
-    key [ 0.0 0.5 1.0 ]
+    key [ 0.0 0.2 0.6 0.8 1.0 ]
     keyValue [
         0 0 0 0
         0 0 1 0.7
+        0 0 1 0.7
         0 0 0 0
+        0 0 0 0
+    ]
+}
+DEF Interpolatorhead OrientationInterpolator {
+    key [ 0.0 0.2 0.6 0.8 1.0 ]
+    keyValue [
+        0.0 1.0 0 3.14
+        0 0 0 0
+        0 0 0 0
+        0.0 1.0 0.0 6.28
+        0.0 1.0 0 3.14
     ]
 }
 
@@ -561,3 +575,6 @@ ROUTE InterpolatorleftArm.value_changed TO leftArm.set_rotation
 
 ROUTE Uhr1.fraction_changed TO InterpolatorleftElbow.set_fraction
 ROUTE InterpolatorleftElbow.value_changed TO leftElbow.set_rotation
+
+ROUTE Uhr1.fraction_changed TO Interpolatorhead.set_fraction
+ROUTE Interpolatorhead.value_changed TO head.set_rotation
